@@ -117,9 +117,8 @@ var personCmd = cli.Cmd{
 
 ```
 Running this example:
-```bash
-$ cli
-```
+
+`cli`
 ```
 An example CLI demonstrating different flag types
 
@@ -135,9 +134,7 @@ Optional Flags:
     -h    --help    Print documentation for command
 ```
 
-```bash
-$ cli db
-```
+`cli db`
 ```
 Do something with a database
 
@@ -153,9 +150,8 @@ Optional Flags:
 
 2023/04/16 16:20:18 ERROR: cmd flag error: flag: 'db-conn' not provided
 ```
-```bash
-$ cli hello --help
-```
+
+`cli hello --help`
 ```
 Say hello to <name> a number of times
 
@@ -166,17 +162,15 @@ Optional Flags:
     -n    --count
     -h    --help     Print documentation for command
 ```
-```bash
-$ cli hello 'freddy the gopher' --count=3
-```
+  
+`cli hello 'freddy the gopher' --count=3`
 ```
 Hello freddy the gopher 0
 Hello freddy the gopher 1
 Hello freddy the gopher 2
 ```
-```bash
-$ cli person
-```
+
+`cli person`
 ```
 Add a person to a database or something
 
@@ -191,9 +185,8 @@ Optional Flags:
 
 2023/04/16 16:20:45 ERROR: cmd flag error: flag: 'person' not provided
 ```
-```bash
-$ cli person --person='{"name":"fritz", "age":25}'
-```
+
+`cli person --person='{"name":"fritz", "age":25}'`
 ```
 2023/04/16 16:20:48 Person name: fritz
 2023/04/16 16:20:48 Person age: 25
