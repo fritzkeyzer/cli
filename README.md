@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/fritzkeyzer/cli)](https://goreportcard.com/report/github.com/fritzkeyzer/cli)
+
 # CLI
 A go package for creating command line interfaces.
 

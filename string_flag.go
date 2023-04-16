@@ -46,10 +46,6 @@ func (flag *StringFlag) Load(argFound bool, argVal *string) (loaded bool, err er
 	}
 
 	if argFound && argVal != nil {
-		if len(flag.AcceptedValues) > 0 {
-
-		}
-
 		flag.Value = *argVal
 		return true, flag.validateVal()
 	}
