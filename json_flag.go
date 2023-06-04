@@ -29,7 +29,10 @@ func (flag *JSONFlag[T]) GetDescription() string {
 	desc := flag.Description
 
 	if flag.EnvVar != "" {
-		desc += fmt.Sprintf("\n> env var: %s", flag.EnvVar)
+		if desc != "" {
+			desc += "\n"
+		}
+		desc += "> env var: " + flag.EnvVar
 	}
 
 	return desc

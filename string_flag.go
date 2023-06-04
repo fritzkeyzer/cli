@@ -30,7 +30,10 @@ func (flag *StringFlag) GetDescription() string {
 	desc := flag.Description
 
 	if flag.EnvVar != "" {
-		desc += fmt.Sprintf("\n> env var: %s", flag.EnvVar)
+		if desc != "" {
+			desc += "\n"
+		}
+		desc += "> env var: " + flag.EnvVar
 	}
 
 	if len(flag.AcceptedValues) != 0 {
