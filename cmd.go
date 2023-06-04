@@ -33,7 +33,7 @@ func (cmd *Cmd) run(args []string, cmdPath []string) error {
 	}
 
 	// this command has no action, print help
-	if len(args) == 0 && cmd.Action == nil {
+	if cmd.Action == nil {
 		cmd.printHelp()
 		return nil
 	}
