@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/fritzkeyzer/cli"
 )
@@ -17,6 +16,11 @@ var countFlag = &cli.IntFlag{
 	Name:  "count",
 	Alias: "n",
 	Value: 5, // default value, since countFlag is optional
+}
+
+var verboseFlag = &cli.BoolFlag{
+	Name:  "verbose",
+	Alias: "v",
 }
 
 // personFlag demonstrates a generic JSONFlag, using the Person type
@@ -50,8 +54,8 @@ var dbCmd = cli.Cmd{
 	Description: "Manage the database. (Demonstrates usage of a required flag)",
 	ReqFlags:    []cli.Flag{dbConnFlag},
 	Action: func(args map[string]string) {
-		log.Println("Database things")
-		log.Println("Connection string:", dbConnFlag.Value)
+		fmt.Println("Database things")
+		fmt.Println("Connection string:", dbConnFlag.Value)
 	},
 }
 
@@ -74,10 +78,14 @@ var personCmd = cli.Cmd{
 	Name:        "person",
 	Description: "Print the name and age of a person. (Demonstrates usage of a generic JSONFlag)",
 	ReqFlags:    []cli.Flag{personFlag},
+	OptFlags:    []cli.Flag{verboseFlag},
 	Action: func(args map[string]string) {
 		person := personFlag.Value
+		verbose := verboseFlag.Value
 
-		log.Println("Person name:", person.Name)
-		log.Println("Person age:", person.Age)
+		fmt.Println("Person:", person)
+		if verbose {
+			fmt.Println("Age:", person.Age)
+		}
 	},
 }
