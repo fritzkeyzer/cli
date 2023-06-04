@@ -29,7 +29,7 @@ type Flag interface {
 	// and argVal contains the value provided for the flag, if any.
 	// Should return true if the flag was loaded  (used for required/optional validation)
 	// Returns an error if the flag was found but the value was invalid etc.
-	// This method can be used to load the flag from any source, not just cli args. Eg: env vars.
+	// This method can be used to load the flag from any source, not just cli args. Eg: env vars, files etc.
 	Load(argFound bool, argVal *string) (loaded bool, err error)
 }
 

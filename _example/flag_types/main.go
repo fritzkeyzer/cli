@@ -46,8 +46,8 @@ func main() {
 
 var dbCmd = cli.Cmd{
 	Name:        "database",
-	Alias:       "db", // commands can have aliases
-	Description: "Do something with a database",
+	Alias:       "db",
+	Description: "Manage the database. (Demonstrates usage of a required flag)",
 	ReqFlags:    []cli.Flag{dbConnFlag},
 	Action: func(args map[string]string) {
 		log.Println("Database things")
@@ -57,19 +57,22 @@ var dbCmd = cli.Cmd{
 
 var helloCmd = cli.Cmd{
 	Name:        "hello",
-	Description: "Say hello to <name> a number of times",
+	Description: "Say hello to <name> a number of times. (Demonstrates usage of an optional flag and named-positional arguments)",
 	OptFlags:    []cli.Flag{countFlag},
 	Args:        []string{"name"},
 	Action: func(args map[string]string) {
-		for i := 0; i < countFlag.Value; i++ {
-			fmt.Println("Hello", args["name"], i)
+		name := args["name"]
+		count := countFlag.Value
+
+		for i := 0; i < count; i++ {
+			fmt.Println("Hello", name, i)
 		}
 	},
 }
 
 var personCmd = cli.Cmd{
 	Name:        "person",
-	Description: "Add a person to a database or something",
+	Description: "Print the name and age of a person. (Demonstrates usage of a generic JSONFlag)",
 	ReqFlags:    []cli.Flag{personFlag},
 	Action: func(args map[string]string) {
 		person := personFlag.Value

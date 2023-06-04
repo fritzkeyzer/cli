@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// Cmd represents a command in the cli.
+// A command can have sub commands, flags, and positional arguments.
 type Cmd struct {
 	Name        string
 	Alias       string   // can be used instead of Name (ideally 1 or 2 characters)
